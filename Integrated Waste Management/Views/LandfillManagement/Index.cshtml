@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Integrated_Waste_Management.Models.LFWM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Landfill Management</h2>
+
+<p>
+    @Html.ActionLink("Add", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WasteDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WeightPounds)
+        </th>
+        <th>
+            LandfillFees
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.WasteDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeightPounds)
+            </td>
+            <td>
+                $@item.LandfillFees
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.LandfillID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.LandfillID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.LandfillID })
+            </td>
+        </tr>
+    }
+    <tr>
+        <td><strong>Total:</strong></td>
+        <td><strong>@ViewBag.TotalWeightPounds</strong></td>
+        <td><strong>$@ViewBag.TotalLandfillFees</strong></td>
+    </tr>
+</table>

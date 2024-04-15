@@ -1,0 +1,72 @@
+﻿@model Integrated_Waste_Management.Models.Sold
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Sold</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RecyclableType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecyclableType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.categories)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categories)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaleDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeightPounds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeightPounds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuyerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuyerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RevenueGenerated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RevenueGenerated)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Integrated_Waste_Management.Models.Buyer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>BuyerManagement</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BuyerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactInformation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchaseHistory)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BuyerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactInformation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchaseHistory)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BuyerID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BuyerID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BuyerID })
+        </td>
+    </tr>
+}
+
+</table>

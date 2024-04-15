@@ -1,0 +1,42 @@
+﻿@model Integrated_Waste_Management.Models.LFWM
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LFWM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WasteDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WasteDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeightPounds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeightPounds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LandfillFees)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LandfillFees)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LandfillID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

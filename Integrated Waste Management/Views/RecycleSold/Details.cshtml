@@ -1,0 +1,66 @@
+﻿@model Integrated_Waste_Management.Models.Sold
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sold</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RecyclableType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecyclableType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.categories)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categories)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaleDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeightPounds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeightPounds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuyerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuyerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RevenueGenerated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RevenueGenerated)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SaleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

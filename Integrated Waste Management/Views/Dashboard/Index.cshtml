@@ -1,0 +1,221 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<h2>Dashboard</h2>
+<table style="border-collapse: collapse; width: 100%; border: 1px solid black;">
+    <tr>
+        <th style="border: 1px solid black; padding: 8px;">Category</th>
+        <th style="border: 1px solid black; padding: 8px;">Total</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;">Recycling Revenue</td>
+        <td style="border: 1px solid black; padding: 8px;"><strong>$ @ViewBag.RecyclingRevenueTotal</strong></td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;">Landfill Waste</td>
+        <td style="border: 1px solid black; padding: 8px;"><strong>@ViewBag.TotalWeight lb</strong></td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;">Compost</td>
+        <td style="border: 1px solid black; padding: 8px;"><strong>@ViewBag.CompostTotal lb</strong></td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;">Cardboard</td>
+        <td style="border: 1px solid black; padding: 8px;"></td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;">Paper</td>
+        <td style="border: 1px solid black; padding: 8px;"></td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;">Aluminum</td>
+        <td style="border: 1px solid black; padding: 8px;"></td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;">Metal</td>
+        <td style="border: 1px solid black; padding: 8px;"></td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;">Glass</td>
+        <td style="border: 1px solid black; padding: 8px;"></td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;">Total Monthly Recycled Lbs</td>
+        <td style="border: 1px solid black; padding: 8px;"></td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;">Total Waste Generated</td>
+        <td style="border: 1px solid black; padding: 8px;"></td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;">Total Waste Diverted</td>
+        <td style="border: 1px solid black; padding: 8px;"></td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;">Waste Diversion Rate</td>
+        <td style="border: 1px solid black; padding: 8px;"></td>
+    </tr>
+</table>
+<h2>Pie Charts</h2>
+<!-- Pie chart for landfill, compost, and recycling revenue totals -->
+<canvas id="myPieChart" style="width: 300px; height: 300px;"></canvas>
+
+<script>
+    // Get data from ViewBag
+    var recyclingRevenueTotal = @ViewBag.RecyclingRevenueTotal;
+    var landfillTotal = @ViewBag.TotalWeight;
+    var compostTotal = @ViewBag.CompostTotal;
+
+    // Render pie chart
+    var ctx = document.getElementById('myPieChart').getContext('2d');
+    var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Recycling Revenue', 'Landfill Waste', 'Compost'],
+            datasets: [{
+                label: 'Total',
+                data: [recyclingRevenueTotal, landfillTotal, compostTotal],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.7)', // Red
+                    'rgba(54, 162, 235, 0.7)', // Blue
+                    'rgba(255, 206, 86, 0.7)' // Yellow
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            // Customize options as needed
+            responsive: false, // Prevents resizing of the chart
+            maintainAspectRatio: false, // Prevents maintaining aspect ratio
+            width: 300,
+            height: 300
+        }
+    });
+</script>
+
+<h2>Line Graphs</h2>
+<canvas id="myLineChart" style="width: 600px; height: 400px;"></canvas>
+
+<script>
+    // Get data from ViewBag
+    var recyclingRevenueTotal = @ViewBag.RecyclingRevenueTotal;
+    var landfillTotal = @ViewBag.TotalWeight;
+    var compostTotal = @ViewBag.CompostTotal;
+
+    // Sample data for line charts
+    var months = ['January', 'February', 'March', 'April', 'May', 'June']; // Sample months
+    var recyclingRevenueData = [100, 150, 200, 180, 220, 250]; // Sample recycling revenue data
+    var landfillData = [300, 320, 350, 380, 400, 420]; // Sample landfill waste data
+    var compostData = [50, 60, 70, 80, 90, 100]; // Sample compost data
+
+    // Render line chart
+    var ctx = document.getElementById('myLineChart').getContext('2d');
+    var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: months,
+            datasets: [
+                {
+                    label: 'Recycling Revenue',
+                    data: recyclingRevenueData,
+                    borderColor: 'rgba(255, 99, 132, 1)', // Red
+                    borderWidth: 2,
+                    fill: false
+                },
+                {
+                    label: 'Landfill Waste',
+                    data: landfillData,
+                    borderColor: 'rgba(54, 162, 235, 1)', // Blue
+                    borderWidth: 2,
+                    fill: false
+                },
+                {
+                    label: 'Compost',
+                    data: compostData,
+                    borderColor: 'rgba(255, 206, 86, 1)', // Yellow
+                    borderWidth: 2,
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            responsive: false, // Prevents resizing of the chart
+            maintainAspectRatio: false, // Prevents maintaining aspect ratio
+            scales: {
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Month' // Label for the x-axis
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Value' // Label for the y-axis
+                    }
+                }]
+            }
+        }
+    });
+</script>
+
+
+
+@*<script>*@
+@*// Render line chart*@
+@*var ctx = document.getElementById('myLineChart').getContext('2d');
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Recycling Revenue'],
+                datasets: [
+                    {
+                        label: 'Recycling Revenue',
+                        data: recyclingRevenueData,
+                        borderColor: 'rgba(255, 99, 132, 1)', // Red
+                        borderWidth: 2,
+                        fill: false
+                    },
+                    {
+                        label: 'Landfill Waste',
+                        data: landfillData,
+                        borderColor: 'rgba(54, 162, 235, 1)', // Blue
+                        borderWidth: 2,
+                        fill: false
+                    },
+                    {
+                        label: 'Compost',
+                        data: compostData,
+                        borderColor: 'rgba(255, 206, 86, 1)', // Yellow
+                        borderWidth: 2,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: false, // Prevents resizing of the chart
+                maintainAspectRatio: false, // Prevents maintaining aspect ratio
+                scales: {
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Category' // Label for the x-axis
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Value' // Label for the y-axis
+                        }
+                    }]
+                }
+            }
+        });
+    </script>*@

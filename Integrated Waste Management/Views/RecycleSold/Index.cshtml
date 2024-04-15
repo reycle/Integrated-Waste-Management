@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Integrated_Waste_Management.Models.Sold>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Recycle Sold</h2>
+
+<p>
+    @Html.ActionLink("Add", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RecyclableType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.categories)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SaleDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WeightPounds)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BuyerName)
+        </th>
+        <th>
+            Revenue Generated
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecyclableType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.categories)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaleDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeightPounds)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BuyerName)
+            </td>
+            <td>
+                $@item.RevenueGenerated
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.SaleID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.SaleID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.SaleID })
+            </td>
+        </tr>
+    }
+    <tr>
+        <td><strong>Total </strong></td>
+        <td></td>
+        <td></td>
+        <td><strong>@ViewBag.TotalWeightPounds</strong></td>
+        <td></td>
+        <td><strong>$@ViewBag.TotalRevenueGenerated</strong></td>
+    </tr>
+
+</table>

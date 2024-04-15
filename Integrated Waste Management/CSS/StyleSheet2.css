@@ -1,0 +1,41 @@
+﻿.pie-segment {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 50%, 100% 0, 100% 100%);
+    background: transparent;
+}
+
+#landfill {
+    background-color: #FF6347; /* Red */
+}
+
+#compost {
+    background-color: #32CD32; /* Green */
+    transform: rotate(240deg);
+}
+
+#revenue {
+    background-color: #4682B4; /* Blue */
+    transform: rotate(120deg);
+}
+
+.label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}

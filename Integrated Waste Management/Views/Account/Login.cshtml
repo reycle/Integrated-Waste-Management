@@ -1,0 +1,30 @@
+﻿@model Integrated_Waste_Management.Models.User
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/EmptyLayout.cshtml";
+}
+<center>
+<h2>Login</h2>
+<link href="~/CSS/StyleSheet1.css" rel="stylesheet" />
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    <div>
+        @Html.LabelFor(model => model.Username)
+        @Html.TextBoxFor(model => model.Username)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Password)
+        @Html.PasswordFor(model => model.Password)
+    </div>
+    <div>
+        <input type="submit" value="Login" />
+    </div>
+}
+
+</center>
+
+<p>@ViewBag.Error</p>

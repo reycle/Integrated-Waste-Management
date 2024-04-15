@@ -1,0 +1,29 @@
+﻿@model List<Integrated_Waste_Management.Models.NotificationSetting>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Notification Settings</h2>
+
+<table class="table">
+    <tr>
+        <th>User ID</th>
+        <th>Notification Type</th>
+        <th>Enabled</th>
+        <th></th>
+    </tr>
+    @foreach (var setting in Model)
+    {
+        <tr>
+            <td>@setting.UserId</td>
+            <td>@setting.NotificationType</td>
+            <td>@(setting.Enabled ? "Yes" : "No")</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = setting.Id }) |
+                @* Add delete action link here if needed *@
+            </td>
+        </tr>
+    }
+</table>

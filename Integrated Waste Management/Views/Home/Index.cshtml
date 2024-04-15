@@ -1,0 +1,237 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<main>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 50vh;
+            display: flow-root;
+            justify-content: center;
+            align-items: center;
+            background: #23E3C9;
+        }
+
+        .slider {
+            width: 800px;
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .slides {
+            width: 500%;
+            height: 500px;
+            display: flex;
+        }
+
+            .slides input {
+                display: none;
+            }
+
+        .slide {
+            width: 20%;
+            transition: 2s;
+        }
+
+            .slide img {
+                width: 800px;
+                height: 500px;
+            }
+
+        /*css for manual slide navigation*/
+
+        .navigation-manual {
+            position: absolute;
+            bottom: -10px; /* Adjust the distance from the bottom */
+            left: 50%; /* Position at the horizontal center */
+            transform: translateX(-50%); /* Adjust for center alignment */
+            width: 800px;
+            margin-top: -40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .manual-btn {
+            border: 2px solid #40D3DC;
+            padding: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 1s;
+        }
+
+            .manual-btn:not(:last-child) {
+                margin-right: 40px;
+            }
+
+            .manual-btn:hover {
+                background: #ff0000;
+            }
+
+        #radio1:checked ~ .first {
+            margin-left: 0;
+        }
+
+        #radio2:checked ~ .first {
+            margin-left: -20%;
+        }
+
+        #radio3:checked ~ .first {
+            margin-left: -40%;
+        }
+
+        #radio4:checked ~ .first {
+            margin-left: -60%;
+        }
+
+        /*css for automatic navigation*/
+
+        .navigation-auto {
+            position: absolute;
+            display: flex;
+            width: 800px;
+            justify-content: center;
+            margin-top: 460px;
+        }
+
+            .navigation-auto div {
+                border: 2px solid #40D3DC;
+                padding: 5px;
+                border-radius: 10px;
+                transition: 1s;
+            }
+
+                .navigation-auto div:not(:last-child) {
+                    margin-right: 40px;
+                }
+
+        #radio1:checked ~ .navigation-auto .auto-btn1 {
+            background: #ffd800;
+        }
+
+        #radio2:checked ~ .navigation-auto .auto-btn2 {
+            background: #ffd800;
+        }
+
+        #radio3:checked ~ .navigation-auto .auto-btn3 {
+            background: #40D3DC;
+        }
+
+        #radio4:checked ~ .navigation-auto .auto-btn4 {
+            background: #40D3DC;
+        }
+        /* Add your CSS styles for the events section here */
+        .events {
+            padding: 50px 0;
+            background-color: #f9f9f9;
+        }
+
+        .event {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .event img {
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+
+        .event-details {
+            padding: 20px 0;
+        }
+
+            .event-details h3 {
+                margin-top: 0;
+            }
+
+            .event-details p {
+                margin-bottom: 20px;
+            }
+    </style>
+    <section>
+        <center>
+            <div class="slider">
+                <div class="slides">
+                    <!-- Radio buttons for navigation -->
+                    <input type="radio" name="radio-btn" id="radio1">
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    <!-- Slides -->
+                    <div class="slide first">
+                        <img src="~/Content/Images/image1.jpg" alt="Image 1">
+                    </div>
+                    <div class="slide">
+                        <img src="~/Content/Images/image2.jpg" alt="Image 2">
+                    </div>
+                    <div class="slide">
+                        <img src="~/Content/Images/image3.jpg" alt="Image 3">
+                    </div>
+                    <!-- Manual navigation buttons -->
+                    <div class="navigation-manual">
+                        <label for="radio1" class="manual-btn"></label>
+                        <label for="radio2" class="manual-btn"></label>
+                        <label for="radio3" class="manual-btn"></label>
+                    </div>
+                </div>
+            </div>
+        </center>
+    </section>
+    
+    <section>
+      <center> <h2>Latest News</h2></center>
+    </section>
+    <center><h2>Events</h2></center>
+    <section class="events">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="event">
+                        <img src="~/Content/Images/image1.jpg" alt="Event 1 Image"style="width: 200px; height: auto;">
+                        <div class="event-details">
+                            <h3>Event 1 Title</h3>
+                            <p>Description of Event 1</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="event">
+                        <img src="~/Content/Images/Image2.jpg" alt="Event 2 Image" style="width: 200px; height: auto;">
+                        <div class="event-details">
+                            <h3>Event 2 Title</h3>
+                            <p>Description of Event 2</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="event">
+                        <img src="~/Content/Images/Image3.jpg" alt="Event 3 Image"style="width: 200px; height: auto;">
+                        <div class="event-details">
+                            <h3>Event 3 Title</h3>
+                            <p>Description of Event 3</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        var counter = 1;
+        setInterval(function () {
+            document.getElementById('radio' + counter).checked = true;
+            counter++;
+            if (counter > 3) {
+                counter = 1;
+            }
+        }, 5000); // Change slide every 5 seconds
+    </script>
+</main>
+
